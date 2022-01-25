@@ -29,6 +29,24 @@ Vagrant.configure("2") do |config|
   # config.vm.network "forwarded_port", guest: 1880, host: 1880
   # --- Forward port for MongoDB
   # config.vm.network "forwarded_port", guest: 27017, host: 27017
+  config.vm.network "forwarded_port", guest: 1000, host: 1000
+  config.vm.network "forwarded_port", guest: 2221, host: 2221
+  config.vm.network "forwarded_port", guest: 2222, host: 2222
+  config.vm.network "forwarded_port", guest: 2223, host: 2223
+  config.vm.network "forwarded_port", guest: 2224, host: 2224
+  config.vm.network "forwarded_port", guest: 2225, host: 2225
+  config.vm.network "forwarded_port", guest: 2226, host: 2226
+  config.vm.network "forwarded_port", guest: 2227, host: 2227
+  config.vm.network "forwarded_port", guest: 7681, host: 7681
+  config.vm.network "forwarded_port", guest: 7682, host: 7682
+  config.vm.network "forwarded_port", guest: 7683, host: 7683
+  config.vm.network "forwarded_port", guest: 7684, host: 7684
+  config.vm.network "forwarded_port", guest: 7685, host: 7685
+  config.vm.network "forwarded_port", guest: 7686, host: 7686
+  config.vm.network "forwarded_port", guest: 7687, host: 7687
+
+  # Change Vagrant default ssh port
+  config.vm.network "forwarded_port", guest: 22, host: 222, id: "ssh"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
