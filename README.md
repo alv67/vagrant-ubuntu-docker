@@ -21,7 +21,11 @@ Prepare a Ubuntu VM to use as a Docker Machine
     ```
     cd vagrant-ubuntu-docker
     ```
-3. launch command
+3. install **vagrant-docker-compose** plugin
+    ```
+    vagrant plugin install vagrant-docker-compose
+    ```
+4. launch command
     ```
     vagrant up
     ```
