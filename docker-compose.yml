@@ -9,6 +9,7 @@ version: "3.7"
 services:
   node-red:
     image: nodered/node-red:2.1.3
+    restart: always
     environment:
       - TZ=Europe/Rome
       - NODE_RED_ENABLE_PROJECTS=true
@@ -18,9 +19,19 @@ services:
       - node-red-net
     volumes:
       - node-red-data:/data
+  mongodb:
+    image: mongo:4.4
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - node-red-net
+    volumes:
+      - mongodb-data:/data/db
 
 volumes:
   node-red-data:
+  mongodb-data:
 
 
 networks:
