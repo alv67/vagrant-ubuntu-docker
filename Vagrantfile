@@ -12,6 +12,13 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8000, host: 8000
   config.vm.network "forwarded_port", guest: 9443, host: 9443
 
+  config.vm.provider "virtualbox" do |vb|
+     # added some vb customization to reduce errors in booting VM.
+     vb.customize ["modifyvm", :id, "--paravirt-provider", "legacy"]
+     vb.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
+     vb.gui = true
+  end
+
   config.vm.provision :docker
   config.vm.provision :docker_compose, yml: "/vagrant/docker-compose.yml", run: "always"
 end
